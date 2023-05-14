@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MiddleSchoolClient extends Client implements ClientInput {
 	protected ClientKind kind = ClientKind.MIDDLESCHOOL;
 	protected String phoneParents;
+	protected String schoolName;
 
 	public MiddleSchoolClient(ClientKind kind) {
 		super(kind);
@@ -18,6 +19,13 @@ public class MiddleSchoolClient extends Client implements ClientInput {
 		this.phoneParents = phoneParents;
 	}
 
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
 
 	public void getUserInput(Scanner sc) {
 		char answer = 'x';
@@ -31,12 +39,17 @@ public class MiddleSchoolClient extends Client implements ClientInput {
 				break;
 			}
 			else if(answer == 'N' || answer == 'n') {
-				this.setPhoneParents("");
+				this.setPhoneParents("없음");
 				break;
 			}
 			else {
 			}
 		}
+		
+		System.out.print("등록할 고객이 재학 중인 학교를 입력하세요.: ");
+		String schoolName = sc.next();
+		this.setSchoolName(schoolName);
+		
 		System.out.print("등록할 고객의 id를 입력해주세요.: ");
 		int id = sc.nextInt();
 		this.setId(id); 
@@ -69,6 +82,7 @@ public class MiddleSchoolClient extends Client implements ClientInput {
 			break;
 		default:
 		}
-		System.out.println("Name: " + name + ", ID: " + id + ", Account: " + account + ", Money: " + money + ", Kind : " + ckind + ", Parent Phone Number: " + phoneParents);
+		System.out.println("Name: " + name + ", ID: " + id + ", Account: " + account + ", Money: " + money + 
+				", Kind : " + ckind + ", Parent Phone Number: " + phoneParents + ", School Name: " + schoolName);
 	}
 }

@@ -6,7 +6,8 @@ public class ElementarySchoolClient extends Client implements ClientInput {
 	
 	protected ClientKind kind = ClientKind.ELEMENTARY;
 	protected String phoneParents;
-	protected String emailParents;
+	protected String schoolName;
+	protected String phoneTeacher;
 
 	public ElementarySchoolClient(ClientKind kind) {
 		super(kind);
@@ -20,12 +21,20 @@ public class ElementarySchoolClient extends Client implements ClientInput {
 		this.phoneParents = phoneParents;
 	}
 	
-	public String getEmailParents() {
-		return emailParents;
+	public String getSchoolName() {
+		return schoolName;
 	}
 
-	public void setEmailParents(String emailParents) {
-		this.emailParents = emailParents;
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+	
+	public String getPhoneTeacher() {
+		return phoneTeacher;
+	}
+
+	public void setPhoneTeacher(String phoneTeacher) {
+		this.phoneTeacher = phoneTeacher;
 	}
 
 	public void getUserInput(Scanner sc) {
@@ -40,12 +49,20 @@ public class ElementarySchoolClient extends Client implements ClientInput {
 				break;
 			}
 			else if(answer == 'N' || answer == 'n') {
-				this.setPhoneParents("");
+				this.setPhoneParents("없음");
 				break;
 			}
 			else {
 			}
 		}
+		System.out.print("등록할 고객이 재학 중인 학교를 입력하세요.: ");
+		String schoolName = sc.next();
+		this.setSchoolName(schoolName);
+		
+		System.out.print("등록할 고객의 선생님 전화번호를 입력하세요.: ");
+		String phoneTeacher = sc.next();
+		this.setPhoneTeacher(phoneTeacher);
+		
 		System.out.print("등록할 고객의 id를 입력하세요.: ");
 		int id = sc.nextInt();
 		this.setId(id); 
@@ -53,10 +70,6 @@ public class ElementarySchoolClient extends Client implements ClientInput {
 		System.out.print("등록할 고객의 이름을 입력하세요.: ");
 		String name = sc.next();
 		this.setName(name);
-		
-		System.out.print("등록할 고객의 부모님 이메일을 입력하세요.: ");
-		String emailParents = sc.next();
-		this.setEmailParents(emailParents);
 		
 		System.out.print("등록할 고객의 계좌번호를 입력하세요.: ");
 		int account = sc.nextInt();
@@ -82,7 +95,9 @@ public class ElementarySchoolClient extends Client implements ClientInput {
 			break;
 		default:
 		}
-		System.out.println("Name: " + name + ", ID: " + id + ", Account: " + account + ", Money: " + money + ", Kind : " + ckind + ", Parent Phone Number: " + phoneParents + ", Parent Email: " + emailParents);
+		System.out.println("Name: " + name + ", ID: " + id + ", Account: " + account + ", Money: " + money + 
+				", Kind : " + ckind + ", Parent Phone Number: " + phoneParents + ", School Name: " + schoolName + 
+				", Teacher Phone Number: " + phoneTeacher);
 	}
 
 }
