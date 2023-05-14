@@ -141,7 +141,7 @@ public class ClientManager {
 		System.out.print("고객의 id를 입력하세요.: ");
 		int clientId = sc.nextInt();
 		int index = -1;
-		for(int i =0; i<clients.size(); i++) {
+		for(int i = 0; i < clients.size(); i++) {
 			if(clients.get(i).getId() == clientId) {
 			index = i;
 			}
@@ -162,14 +162,14 @@ public class ClientManager {
 			}
 			else {
 				clients.get(index).outMoney(outMoney);
-				System.out.println("인출이 완료되었습니다. 현재 금액: "+ clients.get(index).getMoney());
+				System.out.println("인출이 완료되었습니다. 현재 금액: " + clients.get(index).getMoney());
 			}
 		}
 		else if(moneySelect == 2) {
 			System.out.print("입금할 금액을 입력하세요 : ");
 			int inMoney = sc.nextInt();
 			clients.get(index).inMoney(inMoney);
-			System.out.println("입금이 완료되었습니다. 현재 금액: "+clients.get(index).getMoney());
+			System.out.println("입금이 완료되었습니다. 현재 금액: " + clients.get(index).getMoney());
 		}
 		else {
 			System.out.println("잘못된 번호입니다.");

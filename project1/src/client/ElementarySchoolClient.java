@@ -55,6 +55,7 @@ public class ElementarySchoolClient extends Client implements ClientInput {
 			else {
 			}
 		}
+		
 		System.out.print("등록할 고객이 재학 중인 학교를 입력하세요.: ");
 		String schoolName = sc.next();
 		this.setSchoolName(schoolName);
