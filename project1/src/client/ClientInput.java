@@ -19,4 +19,8 @@ public interface ClientInput {
 	public void getUserInput(Scanner sc);
 	public void printInfo();
 	
+	public void setClientId(Scanner sc);
+	public void setClientName(Scanner sc);
+	public void setClientAccount(Scanner sc);
+	public void setClientMoney(Scanner sc);
 }

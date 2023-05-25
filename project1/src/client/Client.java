@@ -1,8 +1,8 @@
-package client;  ///
+package client;
 
 import java.util.Scanner;
 
-public abstract class Client {
+public abstract class Client implements ClientInput {
 
 	protected ClientKind kind = ClientKind.UNIVERSITY;
 	protected String name;
@@ -87,5 +87,49 @@ public abstract class Client {
 	}
 	
 	public abstract void printInfo();
+	
+	public void setClientId(Scanner sc) {
+		System.out.print("Client ID : ");
+		int id = sc.nextInt();
+		this.setId(id);
+	}
+	
+	public void setClientName(Scanner sc) {
+		System.out.print("Client Name : ");
+		String name = sc.next();
+		this.setName(name);
+	}
+	
+	public void setClientAccount(Scanner sc) {
+		System.out.print("Client Account : ");
+		int account = sc.nextInt();
+		this.setAccount(account);
+	}
+	
+	public void setClientMoney(Scanner sc) {
+		System.out.print("Client Money: ");
+		int money = sc.nextInt();
+		this.setMoney(money);
+	}
+	
+	public String getKindString() {
+		String ckind ="none";
+		switch (this.kind) {
+		case UNIVERSITY :
+			ckind = "대학생";
+			break;
+		case HIGHSCHOOL :
+			ckind = "고등학생";
+			break;
+		case MIDDLESCHOOL :
+			ckind = "중학생";
+			break;
+		case ELEMENTARY :
+			ckind = "초등학생";
+			break;
+		default:
+		}
+		return ckind;
+	}
 	
 }
