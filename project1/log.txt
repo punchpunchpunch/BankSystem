@@ -1,0 +1,2 @@
+5월 28, 2023 7:01:38 오후 log.EventLogger log
+정보: add a client

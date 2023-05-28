@@ -1,10 +1,12 @@
 package manuProto;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import client.Client;
 import client.ClientInput;
 import client.ClientKind;
 import client.ElementarySchoolClient;
@@ -12,11 +14,16 @@ import client.HighSchoolClient;
 import client.MiddleSchoolClient;
 import client.UniversityClient;
 
-public class ClientManager {
+public class ClientManager implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2069244142315676937L;
+
 	ArrayList<ClientInput> clients = new ArrayList<ClientInput>();
 	
-	Scanner sc;
+	transient Scanner sc;
 	ClientManager(Scanner sc) {
 		this.sc = sc;
 	}
@@ -194,6 +201,11 @@ public class ClientManager {
 		System.out.println("4. Edit Money");
 		System.out.println("5. Exit");
 		System.out.println("Select one number between 1 ~ 5");
+	}
+	
+	public static void getObject() {
+		FileInputStream file = new FileInputStream(filename);
+		ObjectInputStream obj = new ObjectInputStream(file);
 	}
 	
 }

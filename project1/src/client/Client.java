@@ -1,9 +1,14 @@
 package client;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Client implements ClientInput {
+public abstract class Client implements ClientInput, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3578097752952216421L;
 	protected ClientKind kind = ClientKind.UNIVERSITY;
 	protected String name;
 	protected int id;

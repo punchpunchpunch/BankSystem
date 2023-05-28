@@ -1,19 +1,33 @@
 package manuProto;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import log.EventLogger;
 
 /**
  *학생 은행 프로그램의 메뉴 화면
  */
 public class MenuManager {
 	
+	static EventLogger logger = new EventLogger("log.txt");
+	
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		ClientManager clientManager = new ClientManager(sc);
+		ClientManager clientManager = getObject("clientmanager.ser");
+		if (clientManager == null) {
+			clientManager = new ClientManager(sc);
+		}
 		
 		selectMenu(sc, clientManager);
+		putObject(clientManager, "clientmanager.ser");
 		
 		System.out.println("End the program");
 	}
@@ -30,18 +44,23 @@ public class MenuManager {
 				switch(num) {
 				case 1:
 					clientManager.addClient();
+					logger.log("add a client");
 					break;
 				case 2:
 					clientManager.deleteClient();
+					logger.log("delete a client");
 					break;
 				case 3:
 					clientManager.viewClient();
+					logger.log("view a client");
 					break;
 				case 4:
 					clientManager.dwFunction();
+					logger.log("deposit or withdraw");
 					break;
 				case 5:
 					clientManager.edit();
+					logger.log("edit a client");
 					break;
 				default:
 					continue;
@@ -66,5 +85,46 @@ public class MenuManager {
 		System.out.println("\t5. Client Editor");
 		System.out.println("\t6. Exit");
 		System.out.print("Select one number between 1 ~ 6: ");
+	}
+	
+	public static ClientManager getObject(String filename) {
+		ClientManager clientManager = null;
+		try {
+			FileInputStream file = new FileInputStream(filename);
+			ObjectInputStream in = new ObjectInputStream(file);
+			
+			clientManager = (ClientManager) in.readObject();
+			
+			in.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			return clientManager;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return clientManager;
+	}
+	
+	public static void putObject(ClientManager clientManager, String filename) {
+		try {
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			out.writeObject(clientManager);
+			
+			out.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
