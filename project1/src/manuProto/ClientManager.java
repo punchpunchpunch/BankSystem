@@ -202,10 +202,5 @@ public class ClientManager implements Serializable {
 		System.out.println("5. Exit");
 		System.out.println("Select one number between 1 ~ 5");
 	}
-	
-	public static void getObject() {
-		FileInputStream file = new FileInputStream(filename);
-		ObjectInputStream obj = new ObjectInputStream(file);
-	}
-	
+		
 }

@@ -35,7 +35,7 @@ public abstract class Client implements ClientInput, Serializable {
 		this.money = money;
 	}
 	
-	public Client(ClientKind kind,String name, int id, int account, int money){
+	public Client(ClientKind kind, String name, int id, int account, int money){
 		this.kind = kind;
 		this.name = name;
 		this.id = id;
