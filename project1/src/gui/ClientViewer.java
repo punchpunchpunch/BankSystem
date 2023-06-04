@@ -14,7 +14,6 @@ public class ClientViewer extends JFrame {
 		model.addColumn("Money");
 		model.addColumn("Contact Info.");
 		
-		
 		JTable table = new JTable(model);
 		JScrollPane sp = new JScrollPane(table);
 		
@@ -23,7 +22,6 @@ public class ClientViewer extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Client Viewer");
 		this.setVisible(true);
-		
 	}
 
 }

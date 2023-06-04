@@ -5,6 +5,7 @@ import javax.swing.*;
 public class ClientAdder extends JFrame {
 	
 	public ClientAdder() {
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -40,7 +41,7 @@ public class ClientAdder extends JFrame {
 		this.setContentPane(panel);
 		this.setSize(300, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle(getTitle());
+		this.setTitle("Client Adder");
 		this.setVisible(true);
 		
 	}
