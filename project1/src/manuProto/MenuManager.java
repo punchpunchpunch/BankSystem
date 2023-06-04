@@ -1,4 +1,4 @@
-package manuProto;
+	package manuProto;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

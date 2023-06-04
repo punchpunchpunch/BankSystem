@@ -27,23 +27,20 @@ public class ClientAdder extends JFrame {
 		panel.add(labelAccount);
 		panel.add(fieldAccount);
 		
-		JLabel labelMoney = new JLabel("Money: ", JLabel.TRAILING);
-		JTextField fieldMoney = new JTextField(10);
-		labelMoney.setLabelFor(fieldMoney);
-		panel.add(labelMoney);
-		panel.add(fieldMoney);
+	
 		
 		JButton buttonSave = new JButton("Save");
 		JButton buttonCancel = new JButton("Cancel");
+		panel.add(buttonSave);
+		panel.add(buttonCancel);
 		
 		SpringUtilities.makeCompactGrid(panel, 4, 2, 6, 6, 6, 6);
 		
 		this.setContentPane(panel);
-		this.setSize(300, 300);
+		this.setSize(300, 500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Client Adder");
 		this.setVisible(true);
-		
 	}
 
 }
