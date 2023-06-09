@@ -2,9 +2,13 @@ package gui;
 
 import javax.swing.*;
 
-public class ClientAdder extends JFrame {
+public class ClientAdder extends JPanel {
 	
-	public ClientAdder() {
+	WindowFrame frame;
+	
+	public ClientAdder(WindowFrame frame) {
+		
+		this.frame = frame;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -36,11 +40,8 @@ public class ClientAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 4, 2, 6, 6, 6, 6);
 		
-		this.setContentPane(panel);
-		this.setSize(300, 500);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Client Adder");
-		this.setVisible(true);
+		this.add(panel);
+		
 	}
 
 }

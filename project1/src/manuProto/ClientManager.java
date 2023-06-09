@@ -118,6 +118,14 @@ public class ClientManager implements Serializable {
 		}
 	}
 	
+	public int size() {
+		return clients.size();
+	}
+	
+	public ClientInput get(int index) {
+		return clients.get(index);
+	}
+	
 	// 고객 정보를 수정하는 메소드
 	public void edit() {
 		System.out.print("수정할 고객의 id를 입력하세요.: ");

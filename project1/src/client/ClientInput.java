@@ -7,7 +7,10 @@ public interface ClientInput {
 	public int getId();
 	public void setId(int id);
 	
+	public String getName();
 	public void setName(String name);
+	
+	public int getAccount();
 	public void setAccount(int account);
 	
 	public int getMoney();

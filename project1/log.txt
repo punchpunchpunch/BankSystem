@@ -1,2 +1,4 @@
-6월 04, 2023 1:30:41 오후 log.EventLogger log
+6월 08, 2023 3:27:27 오후 log.EventLogger log
+정보: view a client
+6월 08, 2023 3:28:39 오후 log.EventLogger log
 정보: add a client
